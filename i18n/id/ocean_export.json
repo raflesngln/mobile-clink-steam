@@ -1,0 +1,36 @@
+{
+  "title": "Job List Ocean Export",
+  "search": "Cari DO number",
+  "load_more": "Load More",
+  "job_list": {
+    "DO_number": "Nomor DO",
+    "dispatch": "ID Dispatch",
+    "estimate": "Perkiraan Pengambilan",
+    "address": "Alamat"
+  },
+  "detail_jobs": {
+    "change_status": "Perbaharui Status",
+    "job_number": "Nomor Job",
+    "status": "Status",
+    "commodity": "Komoditi",
+    "status_history": "Riwayat Status",
+    "container_no": "No. Container",
+    "seal_no": "No. Seal",
+    "photo_view": "Lihat gambar",
+    "photo_container": "FOTO CONTAINER",
+    "photo_goods": "FOTO BARANG",
+    "photo_other": "FOTO LAIN",
+    "btn_add_photo": "Tambah Foto",
+    "seal": "Seal / Surat Jalan",
+    "door": "Pintu",
+    "inside1": "Dalam 1",
+    "inside2": "Dalam 2",
+    "inside3": "Dalam 3"
+  },
+  "change_status": {
+    "title": "Perbaharui status",
+    "select_combo": "Pilih status",
+    "note": "Catatan",
+    "button_save": "Update status"
+  }
+}

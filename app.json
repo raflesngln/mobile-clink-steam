@@ -28,12 +28,40 @@
       [
         "expo-splash-screen",
         {
-          "image": "./assets/images/splash-icon.png",
+          "image": "./assets/images/att_transparant.png",
           "imageWidth": 200,
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"
         }
-      ]
+      ],
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/images/notificationicon.png",
+          "color": "#ffffff",
+          "sounds": [
+            "./assets/notificationsound.wav"
+          ]
+        }
+      ],
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Allow $(PRODUCT_NAME) to access your camera",
+          "microphonePermission": "Allow $(PRODUCT_NAME) to access your microphone",
+          "recordAudioAndroid": true
+        }
+      ],
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Izinkan $(PRODUCT_NAME) menggunakan lokasi Anda.",
+          "locationAlwaysPermission": "Izinkan $(PRODUCT_NAME) menggunakan lokasi Anda.",
+          "locationWhenInUsePermission": "Izinkan $(PRODUCT_NAME) menggunakan lokasi Anda.",
+          "isAndroidBackgroundLocationEnabled": true
+        }
+      ],
+      "expo-localization"
     ],
     "experiments": {
       "typedRoutes": true

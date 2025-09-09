@@ -1,0 +1,20 @@
+{
+  "title": "Pengaturan umum",
+  "screen": {
+    "profile": "Detail Profile",
+    "change_language": "Ganti Bahasa",
+    "change_password": "Ganti Password",
+    "ocean_export": "Job List Ocean Export",
+    "ocean_export_done": "Riwayat Ocean Export",
+    "ocean_export_detail": "Detail Ocean Export",
+    "change_status_oe": "Ganti Status",
+    "history_status_oe": "Riwayat Status",
+    "photo_coontainer_oe": "Foto Kontainer",
+    "photo_goods_oe": "Foto Barang / Lain"
+  },
+  "modal": {
+    "button_ok": "Ya",
+    "button_cancel": "cancel",
+    "delete_alert": "Yakin hapus data ?"
+  }
+}

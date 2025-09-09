@@ -1,0 +1,36 @@
+{
+  "title": "Job List Ocean Export",
+  "search": "Search DO number",
+  "load_more": "Load More",
+  "job_list": {
+    "DO_number": "DO Number",
+    "dispatch": "Dispatch ID",
+    "estimate": "Estimate Pick-UP",
+    "address": "Address"
+  },
+  "detail_jobs": {
+    "change_status": "Change Status",
+    "job_number": "Job Number",
+    "status": "Status",
+    "commodity": "Commodity",
+    "status_history": "Status History",
+    "container_no": "Container Numb",
+    "seal_no": "Seal Numb",
+    "photo_view": "view Image",
+    "photo_container": "Photo of Container",
+    "photo_goods": "Photo of Goods",
+    "photo_other": "Another Photo's",
+    "btn_add_photo": "Add Photo",
+    "seal": "Seal / shipping document",
+    "door": "Door",
+    "inside1": "Inside 1",
+    "inside2": "Inside 2",
+    "inside3": "Inside 3"
+  },
+  "change_status": {
+    "title": "Change status",
+    "select_combo": "Select status",
+    "note": "Note",
+    "button_save": "Update status"
+  }
+}

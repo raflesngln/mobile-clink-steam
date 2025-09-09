@@ -1,0 +1,24 @@
+{
+  "title": "Profile",
+  "menu": {
+    "darkMode": "Dark Mode",
+    "profile": "Profile Information",
+    "language": "Change Language",
+    "password": "Change Password",
+    "logout": "Logout"
+  },
+  "sections": {
+    "personalInfo": "Personal Information",
+    "accountSettings": "Account Settings",
+    "preferences": "Preferences"
+  },
+  "buttons": {
+    "editProfile": "Edit Profile",
+    "saveChanges": "Save Changes",
+    "cancel": "Cancel"
+  },
+  "info": {
+    "name": "Name",
+    "email": "Email"
+  }
+}

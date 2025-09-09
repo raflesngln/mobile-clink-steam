@@ -1,0 +1,24 @@
+{
+  "title": "Profil",
+  "menu": {
+    "darkMode": "Mode Gelap",
+    "profile": "Informasi Profil",
+    "language": "Ubah Bahasa",
+    "password": "Ubah Password",
+    "logout": "Keluar"
+  },
+  "sections": {
+    "personalInfo": "Informasi Pribadi",
+    "accountSettings": "Pengaturan Akun",
+    "preferences": "Preferensi"
+  },
+  "buttons": {
+    "editProfile": "Edit Profil",
+    "saveChanges": "Simpan Perubahan",
+    "cancel": "Batal"
+  },
+  "info": {
+    "name": "Nama",
+    "email": "Email"
+  }
+}

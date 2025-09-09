@@ -1,0 +1,21 @@
+{
+  "title": "general settings",
+  "screen": {
+    "profile": "My Profile",
+    "change_language": "Change Language",
+    "change_password": "Change Password",
+    "ocean_export": "Job List Ocean Export",
+    "ocean_export_done": "History Ocean Export",
+    "ocean_export_detail": "Detail Ocean Export",
+    "change_status_oe": "Change Status",
+    "history_status_oe": "History Status",
+    "photo_coontainer_oe": "Photo Container",
+    "photo_goods_oe": "Photo Of goods / Other"
+  },
+  "modal": {
+    "button_ok": "Yes",
+    "button_cancel": "Cancel",
+    "delete_alert": "Are you sure delete data ?",
+    "delete_msg": "Data will be deleted"
+  }
+}
