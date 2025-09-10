@@ -1,8 +1,8 @@
+import { store } from '@/redux/store';
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import * as Location from "expo-location";
 import * as TaskManager from "expo-task-manager";
 import { AppState, Platform } from "react-native";
-import {store} from '@/redux/store'
 // import DataDriver from "@/services/driver/dataDrivers";
 import DataOceans from "@/services/ocean_export/dataOceanExport";
 

@@ -7,7 +7,7 @@ import {
   Text,
   TouchableOpacity,
   useColorScheme,
-  View
+  View,
 } from "react-native";
 
 import COLORS from "@/config/colors";
@@ -24,6 +24,7 @@ import { useNavigation } from "@react-navigation/native";
 import { Box } from "@/components/ui/box";
 import { Center } from "@/components/ui/center";
 import { VStack } from "@/components/ui/vstack";
+import { useAppSelector } from "@/redux/hooks";
 import { router } from "expo-router";
 const { width: deviceWidth, height: deviceHeight } = Dimensions.get("window");
 
@@ -38,6 +39,7 @@ const StartUpScreen: React.FC = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [input, setInput] = useState({ username: "", password: "" });
   const theme = useColorScheme();
+  const dataProfile = useAppSelector((state) => state.profile);
 
   // Tentukan versi spesifik berdasarkan platform
   const versionNumber =
@@ -93,7 +95,7 @@ const StartUpScreen: React.FC = () => {
             flexDirection: "column",
           }}
         >
-          <Box className="h-['30%'] w-[100%] flex w-full flex justify-center items-center">
+          <Box className="h-['30%'] w-[100%] flex justify-center items-center">
             <Image
               source={require("@/assets/images/att_transparant.png")}
               style={{
@@ -157,6 +159,7 @@ const StartUpScreen: React.FC = () => {
                   <Text className=" text-2xl font-bold text-['#ffffffff'] leading-[30px]">
                     Selamat Datang di App Tracking
                   </Text>
+                  <Text>{JSON.stringify(dataProfile?.dataLogin?.isLogin)}</Text>
                 </Center>
 
                 <Center className="px-10 mt-2">
@@ -167,7 +170,9 @@ const StartUpScreen: React.FC = () => {
                 </Center>
               </Center>
               <Center>
-                <Text className=" text-['#c0bfbfff']">Version: {appVersion}</Text>
+                <Text className=" text-['#c0bfbfff']">
+                  Version: {appVersion}
+                </Text>
                 {/* <Text>
                   {Platform.OS === "ios"
                     ? "Build Number (iOS): "

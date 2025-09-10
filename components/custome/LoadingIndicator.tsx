@@ -1,7 +1,7 @@
 import { Spinner } from "@/components/ui/spinner";
-import colors from "tailwindcss/colors";
 import COLOURS from "@/config/colors";
 import { Dimensions } from "react-native";
+import colors from "tailwindcss/colors";
 
 const { width: deviceWidth, height: deviceHeight } = Dimensions.get("window");
 

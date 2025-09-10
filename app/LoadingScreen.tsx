@@ -1,15 +1,14 @@
 // app/LoadingScreen.tsx
-import React, { useEffect, useState } from "react";
-import { View, Text, StyleSheet, SafeAreaView, Dimensions } from "react-native";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import { Spinner } from "@/components/ui/spinner";
 import { Center } from "@/components/ui/center";
-import { useRouter, Stack } from "expo-router"; // Import useRouter
-import { useAppDispatch, useAppSelector } from "@/redux/hooks";
-import { MotiView, Image as MotiImage } from "moti";
-const { width: deviceWidth, height: deviceHeight } = Dimensions.get("window");
-import { LinearGradient } from "expo-linear-gradient";
+import { Spinner } from "@/components/ui/spinner";
 import COLORS from "@/config/colors";
+import { useAppSelector } from "@/redux/hooks";
+import { LinearGradient } from "expo-linear-gradient";
+import { useRouter } from "expo-router"; // Import useRouter
+import { Image as MotiImage, MotiView } from "moti";
+import React, { useEffect, useState } from "react";
+import { Dimensions, StyleSheet, Text } from "react-native";
+const { width: deviceWidth, height: deviceHeight } = Dimensions.get("window");
 
 const LoadingScreen = () => {
   const router = useRouter();
