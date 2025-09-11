@@ -3,7 +3,6 @@ import {
   Dimensions,
   SafeAreaView,
   StyleSheet,
-  Text,
   useColorScheme
 } from "react-native";
 // import ComponenCameraView from "./ComponenCameraView"; // Pastikan path ini benar
@@ -80,7 +79,7 @@ export default function ChangeLanguage() {
       <BackButtonScreen />
       {/* <Text className="text-lg font-bold mb-[30px] px-4"> Ganti Bahasa</Text> */}
       {/* <Text className="text-lg font-bold mb-[30px] px-4">OKO: {JSON.stringify(getCalendars)}</Text> */}
-      <Text className="text-lg font-bold mb-[30px] px-4"> {JSON.stringify(dataProfile)}</Text>
+      {/* <Text className="text-lg font-bold mb-[30px] px-4"> {JSON.stringify(dataProfile)}</Text> */}
       {/* <SkeletonDetailJobs itemCount={5} title="jobList" /> */}
       <RadioGroup value={dataProfile?.language} onChange={handleChangeLanguage}>
         <VStack space="xl" className="w-[98%] px-2 gap-2">

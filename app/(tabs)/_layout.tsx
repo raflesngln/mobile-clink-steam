@@ -44,7 +44,7 @@ export default function TabLayout() {
     segments.length <= 2 &&
     segments[0] === "(tabs)" &&
     (segments[1] === undefined ||
-      ["index", "Profile", "Jobs"].includes(segments[1]));
+      ["index", "jobs", "profile"].includes(segments[1]));
 
 
 
@@ -91,7 +91,7 @@ useEffect(() => {
       }}
     >
       <Tabs.Screen name="index" options={{ title: "Home" ,tabBarLabel: "Home"}} />
-      <Tabs.Screen name="explore" options={{ title: "Explore" ,tabBarLabel: "expore"}} />
+      <Tabs.Screen name="jobs" options={{ title: "Jobs" ,tabBarLabel: "Jobs"}} />
       <Tabs.Screen name="profile" options={{ title: "Profile",tabBarLabel: "Profile" }} />
     </Tabs>
   );

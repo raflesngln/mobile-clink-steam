@@ -15,8 +15,8 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 const { width: DEVICE_WIDTH } = Dimensions.get("window");
 
 const TAB_BAR_WIDTH = DEVICE_WIDTH * 0.80;
-const TAB_ICONS = ["keypad-outline", "camera","person-circle-outline"];
-const TAB_LABELS = ["Home","Explore", "Profile"];
+const TAB_ICONS = ["keypad-outline", "document-text-outline","person-circle-outline"];
+const TAB_LABELS = ["Home","Jobs", "Profile"];
 const TAB_WIDTH = TAB_BAR_WIDTH / TAB_ICONS.length;
 
 const CustomTabBar = ({ state, descriptors, navigation }: any) => {

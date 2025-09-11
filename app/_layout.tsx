@@ -40,7 +40,7 @@ export default function RootApp() {
         console.log('🚀 Auto-starting location tracking...');
         await startLocationTracking();
       } catch (error) {
-        console.log('Auto-start failed, waiting for manual start');
+        console.log('Auto-start failed, waiting for manual start', error);
       }
     };
 
@@ -111,10 +111,6 @@ function RootLayoutNav() {
             <Stack.Screen name="index" options={{ headerShown: false }} />
             <Stack.Screen name="sign-in" options={{ headerShown: false }} />
             <Stack.Screen name="register" options={{ headerShown: false }} />
-            <Stack.Screen
-              name="modal"
-              options={{ headerShown: true, presentation: "modal" }}
-            />
             {/* <Stack.Screen name="modal" options={{ presentation: "modal" }} /> */}
             {/* <ProductNavigator /> */}
           </Stack>
