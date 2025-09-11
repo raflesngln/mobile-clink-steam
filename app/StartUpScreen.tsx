@@ -159,7 +159,8 @@ const StartUpScreen: React.FC = () => {
                   <Text className=" text-2xl font-bold text-['#ffffffff'] leading-[30px]">
                     Selamat Datang di App Tracking
                   </Text>
-                  <Text>{JSON.stringify(dataProfile?.dataLogin?.isLogin)}</Text>
+                  {/* <Text>{JSON.stringify(dataProfile?.dataLogin?.isLogin)}</Text>
+                  <Text className="px-4">{JSON.stringify(Application.nativeApplicationVersion)}</Text> */}
                 </Center>
 
                 <Center className="px-10 mt-2">

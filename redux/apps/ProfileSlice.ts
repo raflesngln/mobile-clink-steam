@@ -19,6 +19,7 @@ export interface profile {
   shouldRefresh: boolean;
   language: string;
   dispatch_id: string[];
+  versionApp: string;
 }
 
 const initialState: profile = {
@@ -38,6 +39,7 @@ const initialState: profile = {
   shouldRefresh: false,
   language: "id",
   dispatch_id: [],
+  versionApp: "1.0.0",
 };
 
 export const ProfileSlice = createSlice({
@@ -98,6 +100,9 @@ export const ProfileSlice = createSlice({
     changeLanguage: (state, action: PayloadAction<string>) => {
       state.language = action.payload;
     },
+    changeVersionApp: (state, action: PayloadAction<string>) => {
+      state.versionApp = action.payload;
+    },
     // menangani halaman di refresh ulang saat kembali dari halaman sebelumnya
     changeShouldRefresh: (state, action: PayloadAction<boolean>) => {
       state.shouldRefresh = action.payload;
@@ -142,6 +147,7 @@ export const {
   addMultipleDispatchIds,
   removeDispatchId,
   clearDispatchIds,
+  changeVersionApp
 } = ProfileSlice.actions;
 
 // Other code such as selectors can use the imported `RootState` type

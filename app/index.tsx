@@ -1,7 +1,9 @@
 // app/LoadingScreen.tsx
-import { useAppSelector } from "@/redux/hooks";
+import { changeVersionApp, logout } from "@/redux/apps/ProfileSlice";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import Constants from "expo-constants";
 import { Stack, useRouter } from "expo-router"; // Import useRouter
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { StyleSheet } from "react-native";
 
 import LoadingComponent from "@/components/custome/LoadingComponent";
@@ -11,8 +13,9 @@ import LoadingComponent from "@/components/custome/LoadingComponent";
 // and then use the selector.
 
 const LoadingScreen = () => {
+  const dispatch = useAppDispatch();
   const dataProfile = useAppSelector((state) => state.profile);
-  const [nama, setNama] = useState<any>("");
+  const appVersion: any = Constants.expoConfig?.version;
 
   const router = useRouter();
 
@@ -21,6 +24,18 @@ const LoadingScreen = () => {
       try {
         // Simulate a small delay for the loading screen to be visible
         await new Promise((resolve) => setTimeout(resolve, 2000));
+
+        // get version apps, if change version then remove all login state and view start-up screen
+        const versionAppRedux = dataProfile.versionApp;
+        if (versionAppRedux !== appVersion) {
+          // console.log("App version has changed.Resetting state");
+          // Dispatch action to update Redux with the new version
+          dispatch(changeVersionApp(appVersion));
+          dispatch(logout());
+          router.replace("/StartUpScreen");
+          return; // Stop further checks if version changed
+        }
+
         // Check login status from AsyncStorage
         // In a real app, you might store a token or a specific login flag
         const userToken = dataProfile.dataLogin.isLogin; // Example: check for a user token

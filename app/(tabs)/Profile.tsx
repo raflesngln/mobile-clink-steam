@@ -1,51 +1,38 @@
-import {
-  StyleSheet,
-  Text,
-  Pressable,
-  Dimensions,
-  TouchableOpacity,
-  View,
-  Platform,
-} from "react-native";
-import { Link, useFocusEffect, useNavigation, useRouter } from "expo-router";
+import ModalCustom from "@/components/custome/ModalCustom";
 import { ThemedText } from "@/components/ThemedText";
-import { useAppDispatch, useAppSelector } from "@/redux/hooks";
-import { changeDarkMode } from "@/redux/apps/LoginSlice";
-import { Image } from "@/components/ui/image";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import { useCallback, useEffect, useState } from "react";
-import { useAnimationState } from "moti";
-import { Grid, GridItem } from "@/components/ui/grid";
-import { VStack } from "@/components/ui/vstack";
-import { HStack } from "@/components/ui/hstack";
-import { Box } from "@/components/ui/box";
 import {
   Avatar,
   AvatarBadge,
   AvatarFallbackText,
   AvatarImage,
 } from "@/components/ui/avatar";
-import { LinearGradient } from "expo-linear-gradient";
-import Ionicons from "@expo/vector-icons/Ionicons";
-import {
-  Radio,
-  RadioGroup,
-  RadioIcon,
-  RadioIndicator,
-  RadioLabel,
-} from "@/components/ui/radio";
+import { Box } from "@/components/ui/box";
 import { Button, ButtonText } from "@/components/ui/button";
-import { CircleIcon } from "@/components/ui/icon";
-import { Switch } from "@/components/ui/switch";
 import { Center } from "@/components/ui/center";
-import ImageView from "react-native-image-viewing";
-import { Divider } from "@/components/ui/divider";
-import { logout } from "@/redux/apps/ProfileSlice";
-import ModalCustom from "@/components/custome/ModalCustom";
-const { width: deviceWidth, height: deviceHeight } = Dimensions.get("window");
+import { Grid, GridItem } from "@/components/ui/grid";
+import { HStack } from "@/components/ui/hstack";
+import { Switch } from "@/components/ui/switch";
+import { translate } from '@/i18n/locales';
 import { navigateWithParams } from "@/libs/navigastionHelper";
+import { changeDarkMode } from "@/redux/apps/LoginSlice";
+import { logout } from "@/redux/apps/ProfileSlice";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import Ionicons from "@expo/vector-icons/Ionicons";
 import Constants from "expo-constants";
-import { translate, i18n } from '@/i18n/locales';
+import { LinearGradient } from "expo-linear-gradient";
+import { useFocusEffect, useNavigation, useRouter } from "expo-router";
+import { useAnimationState } from "moti";
+import { useCallback, useState } from "react";
+import {
+  Dimensions,
+  Platform,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View
+} from "react-native";
+import ImageView from "react-native-image-viewing";
+const { width: deviceWidth, height: deviceHeight } = Dimensions.get("window");
 
 
 export default function MyProfile() {
@@ -247,7 +234,7 @@ export default function MyProfile() {
                 {/* <TouchableOpacity onPress={MyProfileInfo}> */}
                 <HStack className=" justify-between mt-3">
                   <HStack className="gap-2">
-                    <Ionicons name="person-outline" size={22} color="#9c9a9a" />
+                    <Ionicons name="information-circle-outline" size={22} color="#9c9a9a" />
                     <ThemedText>{translate('profile.menu.profile')}</ThemedText>
                   </HStack>
                   <Ionicons

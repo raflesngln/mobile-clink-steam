@@ -1,33 +1,30 @@
-/* eslint-disable prettier/prettier */
+import { useColorsMode } from "@/hooks/useColorsMode";
+import { navigateWithParams } from "@/libs/navigastionHelper";
+import { useAppSelector } from "@/redux/hooks";
+import { Ionicons } from "@expo/vector-icons";
+import { useRouter } from "expo-router";
 import React from "react";
 import {
-  ImageBackground,
-  Text,
-  StyleSheet,
-  Image,
   Dimensions,
-  StatusBar,
-  SafeAreaView,
-  TouchableOpacity,
+  Image,
+  ImageBackground,
   Platform,
-  useColorScheme,
+  StatusBar,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  useColorScheme
 } from "react-native";
-import { Box } from "../ui/box";
-import { View } from "moti";
-import { VStack } from "../ui/vstack";
-import { HStack } from "../ui/hstack";
 import {
   Avatar,
   AvatarBadge,
   AvatarFallbackText,
   AvatarImage,
 } from "../ui/avatar";
-import { useAppSelector } from "@/redux/hooks";
-import { useColorsMode } from "@/hooks/useColorsMode";
+import { Box } from "../ui/box";
+import { HStack } from "../ui/hstack";
+import { VStack } from "../ui/vstack";
 const { width: deviceWidth, height: deviceHeight } = Dimensions.get("window");
-import { useRouter, useSegments } from "expo-router";
-import { Ionicons } from "@expo/vector-icons";
-import { navigateWithParams } from "@/libs/navigastionHelper";
 
 function LayoutBackground(props: any) {
   const router = useRouter();
@@ -61,8 +58,8 @@ function LayoutBackground(props: any) {
     // <SafeAreaView style={{flex:1}}>
     <VStack className="mt-30 bg-red-4000">
       <ImageBackground
-        source={require("@/assets/images/logistics_hdr.png")}
-        resizeMode="cover"
+        source={require("@/assets/images/ilustration_home.png")}
+        resizeMode="contain"
         // repeat="no-repeat"
         // style={[ {justifyContent:'flex-start', height: 230, padding: 0,paddingHorizontal:6,paddingVertical:4 }]}
         style={[

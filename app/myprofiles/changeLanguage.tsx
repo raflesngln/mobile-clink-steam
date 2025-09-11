@@ -3,25 +3,21 @@ import {
   Dimensions,
   SafeAreaView,
   StyleSheet,
-  useColorScheme
+  Text,
+  TouchableOpacity,
+  useColorScheme,
 } from "react-native";
 // import ComponenCameraView from "./ComponenCameraView"; // Pastikan path ini benar
 
 import { BackButtonScreen } from "@/components/custome/BackButtonScreen";
-import { CircleIcon } from "@/components/ui/icon";
-import {
-  Radio,
-  RadioGroup,
-  RadioIcon,
-  RadioIndicator,
-  RadioLabel,
-} from "@/components/ui/radio";
 import { VStack } from "@/components/ui/vstack";
 import { changeLanguage } from "@/redux/apps/ProfileSlice";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks"; // Dapatkan dimensi layar
 
 import { useCustomToast } from "@/components/custome/ShowToast";
+import { HStack } from "@/components/ui/hstack";
 import { changeLanguage as changeI18nLanguage } from "@/i18n/locales";
+import { Ionicons } from "@expo/vector-icons";
 import { router } from "expo-router";
 const { width, height } = Dimensions.get("window");
 
@@ -49,7 +45,7 @@ export default function ChangeLanguage() {
     // Update i18n language secara langsung
     changeI18nLanguage(newValue);
     showToast(
-      dataProfile?.language == "id"
+      dataProfile?.language === "id"
         ? "Language Change to English"
         : "Bahasa diubah ke Indonesia",
       "info"
@@ -81,50 +77,54 @@ export default function ChangeLanguage() {
       {/* <Text className="text-lg font-bold mb-[30px] px-4">OKO: {JSON.stringify(getCalendars)}</Text> */}
       {/* <Text className="text-lg font-bold mb-[30px] px-4"> {JSON.stringify(dataProfile)}</Text> */}
       {/* <SkeletonDetailJobs itemCount={5} title="jobList" /> */}
-      <RadioGroup value={dataProfile?.language} onChange={handleChangeLanguage}>
-        <VStack space="xl" className="w-[98%] px-2 gap-2">
-          {/* <Radio value="en" className="justify-between rounded-lg px-2 py-3" style={{backgroundColor:dataProfile?.language=='en'?'#a8a0a4d6':'transparent'}}> */}
-          <Radio
-            value="en"
-            className="justify-between rounded-lg px-2 py-3"
-            style={{
-              backgroundColor:
-                colorScheme == "light"
-                  ? dataProfile?.language == "en"
-                    ? "#d7d7d9"
-                    : "transparent"
-                  : dataProfile?.language == "en"
-                  ? "#545353ff"
-                  : "transparent",
-            }}
-          >
-            <RadioLabel>ENGLISH </RadioLabel>
-            <RadioIndicator >
-              <RadioIcon as={CircleIcon}   />
-            </RadioIndicator>
-          </Radio>
-          {/* <Radio value="id" className="justify-between rounded-lg px-2 py-3 active:bg-['#d7d7d9'] focus:bg-['#d7d7d9']" style={{backgroundColor:dataProfile?.language=='id'?'#d7d7d9':'transparent'}}> */}
-          <Radio
-            value="id"
-            className="justify-between rounded-lg px-2 py-3 active:bg-['#d7d7d9'] focus:bg-['#d7d7d9'] hover:bg-['#d7d7d9'] "
-            style={{
-              backgroundColor:
-                colorScheme == "light"
-                  ? dataProfile?.language == "id"
-                    ? "#d7d7d9"
-                    : "transparent"
-                  : dataProfile?.language == "id"
-                  ? "#545353ff"
-                  : "transparent",
-            }}
-          >
-            <RadioLabel>INDONESIA </RadioLabel>
-            <RadioIndicator>
-              <RadioIcon as={CircleIcon} />
-            </RadioIndicator>
-          </Radio>
+      {/* <RadioGroup value={dataProfile?.language} onChange={handleChangeLanguage}> */}
+      <VStack space="xl" className="w-[98%] px-2 gap-2">
+        {/* <Radio value="en" className="justify-between rounded-lg px-2 py-3" style={{backgroundColor:dataProfile?.language=='en'?'#a8a0a4d6':'transparent'}}> */}
+        <Text className=" items-center  self-center">Change Language</Text>
+        <VStack className="gap-3 mt-6">
+          <TouchableOpacity onPress={() => handleChangeLanguage("en")}>
+            <HStack className="justi justify-between">
+              <HStack>
+                <Text className="text-2xl">🇬🇧 </Text>
+                <Text className="dark:text-gray-100 mt-1">ENGLISH</Text>
+              </HStack>
+              <Text>
+                <Ionicons
+                  name={
+                    dataProfile?.language === "en"
+                      ? "checkmark-circle"
+                      : "ellipse-outline"
+                  }
+                  size={26}
+                  // color={isFocused ? "#ffffff" : "#4a4a4aff"}
+                  color={colorScheme === "dark" ? "#bfd0f5" : "#0e4bcf"}
+                />
+              </Text>
+            </HStack>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => handleChangeLanguage("id")}>
+            <HStack className="justi justify-between">
+              <HStack>
+                <Text className="text-2xl">🇮🇩 </Text>
+                <Text className="dark:text-gray-100 mt-1">INDONESIA</Text>
+              </HStack>
+              <Text>
+                <Ionicons
+                  name={
+                    dataProfile?.language === "id"
+                      ? "checkmark-circle"
+                      : "ellipse-outline"
+                  }
+                  size={26}
+                  // color={isFocused ? "#ffffff" : "#4a4a4aff"}
+                  color={colorScheme === "dark" ? "#bfd0f5" : "#0e4bcf"}
+                />
+              </Text>
+            </HStack>
+          </TouchableOpacity>
         </VStack>
-      </RadioGroup>
+      </VStack>
+      {/* </RadioGroup> */}
     </SafeAreaView>
   );
 }
