@@ -154,7 +154,7 @@ function LayoutBackground(props: any) {
               </Text>
               <HStack>
                 <Text className="text-gray-200">Rp </Text>
-                <Text className=" self-center text-4xl text-['#63ed07']">
+                <Text className=" self-center text-4xl text-['#63ed07'] font-extrabold">
                   650.000
                 </Text>
               </HStack>
@@ -164,10 +164,10 @@ function LayoutBackground(props: any) {
                 Job Hari ini
               </Text>
               <HStack>
-                <Text className=" self-center text-4xl text-['#63ed07']">
+                <Text className=" self-center text-4xl text-['#63ed07'] font-extrabold">
                   45
                 </Text>
-                <Text className="mt-4 text-gray-200"> unit</Text>
+                <Text className="mt-4 text-gray-200 "> unit</Text>
               </HStack>
             </Box>
           </HStack>
