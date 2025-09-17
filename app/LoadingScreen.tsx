@@ -27,7 +27,7 @@ const LoadingScreen = () => {
     }, 2000); // delay to show loading
 
     return () => clearTimeout(timeout);
-  }, [dataProfile?.dataLogin?.isLogin]);
+  }, [dataProfile?.dataLogin?.isLogin, router]);
 
   return (
     <>

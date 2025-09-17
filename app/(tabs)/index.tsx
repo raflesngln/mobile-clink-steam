@@ -1,14 +1,11 @@
 import LayoutBackground from "@/components/custome/LayoutBackground";
 import { useCustomToast } from "@/components/custome/ShowToast";
 import { Box } from "@/components/ui/box";
-import { Center } from "@/components/ui/center";
 import { Grid, GridItem } from "@/components/ui/grid";
 import { HStack } from "@/components/ui/hstack";
 import { useColorsMode } from "@/hooks/useColorsMode";
 import { translate } from "@/i18n/locales";
 import { useAppSelector } from "@/redux/hooks";
-import { Image } from "expo-image";
-import { LinearGradient } from "expo-linear-gradient";
 import { useRouter, useSegments } from "expo-router";
 import React, { useRef, useState } from "react";
 import {
@@ -22,8 +19,9 @@ import {
   useColorScheme,
 } from "react-native";
 
+import { Divider } from "@/components/ui/divider";
 import useThemeConfig from "@/config/darkMode";
-import { navigateWithParams } from "@/libs/navigastionHelper";
+import { Ionicons } from "@expo/vector-icons";
 const { width: deviceWidth, height: deviceHeight } = Dimensions.get("window");
 const isAndroid = Platform.OS === "android";
 
@@ -51,6 +49,65 @@ export default function HomeScreen() {
   const [isTracking, setIsTracking] = useState(false);
   const [savedLocations, setSavedLocations] = useState([]);
 
+  const jobsHistory = [
+    {
+      id: 1,
+      name: "Anton",
+      desc: "Motor Kecil",
+      price: 20000,
+      time: "20-10-2025-11:12:03",
+    },
+    {
+      id: 2,
+      name: "Budi",
+      desc: "Motor Besar",
+      price: 25000,
+      time: "20-10-2025-11:12:03",
+    },
+    {
+      id: 3,
+      name: "Anton",
+      desc: "Motor Kecil",
+      price: 20000,
+      time: "20-10-2025-11:12:03",
+    },
+    {
+      id: 4,
+      name: "Yuda",
+      desc: "Motor Sedang",
+      price: 22000,
+      time: "20-10-2025-11:12:03",
+    },
+    {
+      id: 5,
+      name: "Anton",
+      desc: "Motor Kecil",
+      price: 20000,
+      time: "20-10-2025-11:12:03",
+    },
+    {
+      id: 6,
+      name: "Budi",
+      desc: "Motor Sedang",
+      price: 22000,
+      time: "20-10-2025-11:12:03",
+    },
+    {
+      id: 7,
+      name: "Mawar",
+      desc: "Motor Sedang",
+      price: 22000,
+      time: "20-10-2025-11:12:03",
+    },
+    {
+      id: 8,
+      name: "Bunga",
+      desc: "Motor Sedang",
+      price: 22000,
+      time: "20-10-2025-11:12:03",
+    },
+  ];
+
   return (
     <SafeAreaView style={{ flex: 1 }}>
       {/* <MotiView
@@ -76,6 +133,8 @@ export default function HomeScreen() {
         style={styles.background}
       > */}
       <LayoutBackground />
+    
+
       <ScrollView
         style={{
           flex: 1,
@@ -85,7 +144,7 @@ export default function HomeScreen() {
           // paddingBottom: 50,
           // marginBottom: 20,
           // height: deviceHeight / 2,
-          marginTop: -20,
+          marginTop: 4,
           paddingTop: 0,
           paddingBottom: 50,
           marginBottom: 20,
@@ -98,10 +157,10 @@ export default function HomeScreen() {
         }}
       >
         {/* Load Menu Items in Dashboard */}
-        <RenderMenuItem />
+        {/* <RenderMenuItem /> */}
 
         <Grid
-          className="gap-5 pl-2 pr-2 pt-4 mt-4"
+          className="gap-5 pl-2 pr-2 pt-4 mt-4 pb-20"
           _extra={{
             className: "grid-cols-12",
           }}
@@ -114,7 +173,7 @@ export default function HomeScreen() {
           >
             <HStack className=" flex justify-between px-4">
               <Text className=" text-['#8d8f8fff'] font-bold text-md">
-                {translate("home.riwayat_ocean")}
+                {translate("home.history_job")}
               </Text>
               <TouchableOpacity>
                 <Text className=" text-['#18a2d5ff'] font-bold text-md">
@@ -122,8 +181,34 @@ export default function HomeScreen() {
                 </Text>
               </TouchableOpacity>
             </HStack>
-            <Box className="mt-2">
-              <Text>jhjhjhjh</Text>
+            <Box className="px-2">
+              {jobsHistory.map((val, idx) => {
+                return (
+                  <Box key={idx}>
+                    <HStack
+                      key={idx}
+                      className="mt-2 px-2 py-2 justify-between"
+                    >
+                      <Box>
+                        <Text className="text-gray-900 font-bold dark:text-gray-100">
+                          <Ionicons
+                            name="receipt-outline"
+                            size={13}
+                            color={"#828181"}
+                          />{" "}
+                          {val.name}
+                        </Text>
+                        <Text className="text-gray-400 pl-4 italic">
+                          {val.time}
+                        </Text>
+                        <Text className="text-gray-500 pl-4">{val.desc}</Text>
+                      </Box>
+                      <Text className="text-gray-700 dark:text-gray-100">{val.price}</Text>
+                    </HStack>
+                    <Divider />
+                  </Box>
+                );
+              })}
             </Box>
           </GridItem>
         </Grid>
@@ -137,146 +222,6 @@ export default function HomeScreen() {
   );
 }
 
-const itemsMenu = [
-  {
-    id: 1,
-    kategori: "oe",
-    screen: "ocean_export",
-    title: "Kecil",
-    icon: "directions-boat",
-    img: "motor_kecil",
-    disable: false,
-    qty: 12,
-  },
-  {
-    id: 2,
-    kategori: "oi",
-    screen: "ocean_export",
-    title: "Sedang",
-    icon: "directions-boat-filled",
-    img: "motor_sedang",
-    disable: false,
-    qty: 5,
-  },
-  {
-    id: 3,
-    kategori: "ae",
-    screen: "ocean_export",
-    title: "Besar",
-    icon: "flight-takeoff",
-    img: "motor_besar",
-    disable: false,
-    qty: 8,
-  },
-];
-
-function RenderMenuItem() {
-  const segments = useSegments(); // ['(tabs)', 'home'] misalnya
-  const { showToast } = useCustomToast();
-  const [loading, setLoading] = useState<boolean>(true);
-  const router = useRouter();
-  const colorScheme = useColorScheme();
-  const themeColors = useThemeConfig();
-  const colorMode = useColorsMode();
-  // const isOnRootTab = segments.length === 2 && segments[0] === "(tabs)";
-
-  const gotoScreenModules = ({ id, screen }: { id: any; screen: string }) => {
-    // showToast("OKE  " + screen, "danger");
-
-    if (id !== 1) {
-      console.log("Nonaktif");
-      showToast("Menu belum tersedia x ", "default");
-      return;
-    }
-
-    setLoading(true);
-    setTimeout(() => {
-      navigateWithParams({
-        pathname: "/IndicatorScreen",
-        queryParams: {
-          redirectTo: `/${screen}`,
-          title: "Halaman " + screen, // ini akan diteruskan
-          id: `${screen}`,
-        },
-        navType: "push",
-      });
-      setLoading(false);
-    }, 800);
-  };
-
-  return (
-    <>
-      <Grid
-        className="gap-5 pl-2 pr-2 bg-"
-        _extra={{
-          className: "grid-cols-12",
-        }}
-      >
-        {itemsMenu.map((val: any, idx: number) => {
-          return (
-            <GridItem
-              key={idx}
-              className="bg-red-4000 rounded-md"
-              _extra={{
-                className: "col-span-4",
-              }}
-            >
-              <TouchableOpacity
-                onPress={() =>
-                  gotoScreenModules({ id: val.id, screen: val.screen })
-                }
-                disabled={val.id !== 1 ? true : false}
-              >
-                <Box>
-                  <Center className="mt-2">
-                    <LinearGradient
-                      // colors={[COLORS.primary, COLORS.bgLight, COLORS.primary]}
-                      colors={["#D8F2F1", "#D8F2F1", "#BFF4FF"]}
-                      style={styles.containerIcon}
-                      start={{ x: 0, y: 0 }}
-                      end={{ x: 1, y: 0.5 }}
-                    >
-                      <Text className="">
-                        <Image
-                          // source={require(`@/assets/images/att_transparant.png`)}
-                          source={iconImages[val.img]}
-                          style={{
-                            width: 300,
-                            height: 40,
-                            resizeMode: "contain",
-                          }}
-                        />
-                      </Text>
-                    </LinearGradient>
-                  
-                    <Text
-                      className="text-['#374151'] dark:text-gray-300 text-md"
-                      style={{
-                        color:
-                          colorScheme == "dark"
-                            ? val.disable
-                              ? "#919497ff"
-                              : "#dce0e6ff"
-                            : val.disable
-                            ? "#a4a6a8ff"
-                            : "#5d5959ff",
-                      }}
-                    >
-                      {val.title}
-                    </Text>
-                    <Box className="">
-                      <Text className="text-3xl font-bold">{val.qty}</Text>
-                    </Box>
-                  </Center>
-                </Box>
-              </TouchableOpacity>
-            </GridItem>
-          );
-        })}
-      </Grid>
-    </>
-  );
-}
 
 const styles = StyleSheet.create({
   titleContainer: {
@@ -378,6 +323,6 @@ const styles = StyleSheet.create({
     paddingTop: 6,
     paddingBottom: 6,
     // backgroundColor: "#000000",
-    width: deviceWidth / 5,
+    width: deviceWidth / 4,
   },
 });

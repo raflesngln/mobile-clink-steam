@@ -1,110 +1,130 @@
-import { Image } from 'expo-image';
-import { Platform, StyleSheet } from 'react-native';
+import { Box } from "@/components/ui/box";
+import { Grid, GridItem } from "@/components/ui/grid";
+import { HStack } from "@/components/ui/hstack";
+import { VStack } from "@/components/ui/vstack";
+import { Ionicons } from "@expo/vector-icons";
+import React from "react";
+import {
+  Dimensions,
+  SafeAreaView,
+  ScrollView,
+  StyleSheet,
+  Text,
+} from "react-native";
 
-import { Collapsible } from '@/components/Collapsible';
-import { ExternalLink } from '@/components/ExternalLink';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
-import { IconSymbol } from '@/components/ui/IconSymbol';
+const { width: deviceWidth, height: deviceHeight } = Dimensions.get("window");
 
-export default function TabTwoScreen() {
+export default function JobsScreen() {
+  const jobsTodayEMployee = [
+    {
+      id: 1,
+      name: "Anton",
+      desc: "Motor Kecil",
+      price: 20000,
+      time: "20-10-2025-11:12:03",
+    },
+    {
+      id: 2,
+      name: "Budi",
+      desc: "Motor Besar",
+      price: 25000,
+      time: "20-10-2025-11:12:03",
+    },
+    {
+      id: 3,
+      name: "Ibeng",
+      desc: "Motor Kecil",
+      price: 20000,
+      time: "20-10-2025-11:12:03",
+    },
+    {
+      id: 4,
+      name: "Yuda",
+      desc: "Motor Sedang",
+      price: 22000,
+      time: "20-10-2025-11:12:03",
+    },
+  ];
+
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#D0D0D0', dark: '#353636' }}
-      headerImage={
-        <IconSymbol
-          size={310}
-          color="#808080"
-          name="chevron.left.forwardslash.chevron.right"
-          style={styles.headerImage}
-        />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Explore</ThemedText>
-      </ThemedView>
-      <ThemedText>This app includes example code to help you get started.</ThemedText>
-      <Collapsible title="File-based routing">
-        <ThemedText>
-          This app has two screens:{' '}
-          <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> and{' '}
-          <ThemedText type="defaultSemiBold">app/(tabs)/explore.tsx</ThemedText>
-        </ThemedText>
-        <ThemedText>
-          The layout file in <ThemedText type="defaultSemiBold">app/(tabs)/_layout.tsx</ThemedText>{' '}
-          sets up the tab navigator.
-        </ThemedText>
-        <ExternalLink href="https://docs.expo.dev/router/introduction">
-          <ThemedText type="link">Learn more</ThemedText>
-        </ExternalLink>
-      </Collapsible>
-      <Collapsible title="Android, iOS, and web support">
-        <ThemedText>
-          You can open this project on Android, iOS, and the web. To open the web version, press{' '}
-          <ThemedText type="defaultSemiBold">w</ThemedText> in the terminal running this project.
-        </ThemedText>
-      </Collapsible>
-      <Collapsible title="Images">
-        <ThemedText>
-          For static images, you can use the <ThemedText type="defaultSemiBold">@2x</ThemedText> and{' '}
-          <ThemedText type="defaultSemiBold">@3x</ThemedText> suffixes to provide files for
-          different screen densities
-        </ThemedText>
-        <Image source={require('@/assets/images/att_transparant.png')} style={{ alignSelf: 'center' }} />
-        <ExternalLink href="https://reactnative.dev/docs/images">
-          <ThemedText type="link">Learn more</ThemedText>
-        </ExternalLink>
-      </Collapsible>
-      <Collapsible title="Custom fonts">
-        <ThemedText>
-          Open <ThemedText type="defaultSemiBold">app/_layout.tsx</ThemedText> to see how to load{' '}
-          <ThemedText style={{ fontFamily: 'SpaceMono' }}>
-            custom fonts such as this one.
-          </ThemedText>
-        </ThemedText>
-        <ExternalLink href="https://docs.expo.dev/versions/latest/sdk/font">
-          <ThemedText type="link">Learn more</ThemedText>
-        </ExternalLink>
-      </Collapsible>
-      <Collapsible title="Light and dark mode components">
-        <ThemedText>
-          This template has light and dark mode support. The{' '}
-          <ThemedText type="defaultSemiBold">useColorScheme()</ThemedText> hook lets you inspect
-          what the user&apos;s current color scheme is, and so you can adjust UI colors accordingly.
-        </ThemedText>
-        <ExternalLink href="https://docs.expo.dev/develop/user-interface/color-themes/">
-          <ThemedText type="link">Learn more</ThemedText>
-        </ExternalLink>
-      </Collapsible>
-      <Collapsible title="Animations">
-        <ThemedText>
-          This template includes an example of an animated component. The{' '}
-          <ThemedText type="defaultSemiBold">components/HelloWave.tsx</ThemedText> component uses
-          the powerful <ThemedText type="defaultSemiBold">react-native-reanimated</ThemedText>{' '}
-          library to create a waving hand animation.
-        </ThemedText>
-        {Platform.select({
-          ios: (
-            <ThemedText>
-              The <ThemedText type="defaultSemiBold">components/ParallaxScrollView.tsx</ThemedText>{' '}
-              component provides a parallax effect for the header image.
-            </ThemedText>
-          ),
-        })}
-      </Collapsible>
-    </ParallaxScrollView>
+    // <ParallaxScrollView
+    //   headerBackgroundColor={{ light: "#D0D0D0", dark: "#353636" }}
+    //   headerImage={
+    //     <IconSymbol
+    //       size={310}
+    //       color="#808080"
+    //       name="chevron.left.forwardslash.chevron.right"
+    //       style={styles.headerImage}
+    //     />
+    //   }
+    // >
+    //   {[1, 2, 3, 4, 5, 6, 7,2,4,5,5,6,66,6, 8, 9, 10].map((val, idx) => {
+    //     return (
+    //       <Box key={idx}>
+    //         <Text>asdasdsa</Text>
+    //       </Box>
+    //     );
+    //   })}
+    // </ParallaxScrollView>
+    <>
+      <SafeAreaView style={{ flex: 1 }}>
+        <VStack className=" justify-between " style={{ height: deviceHeight }}>
+          <Box className=" bg-white px-2 py-2" style={{ height: "75%" }}>
+            <ScrollView
+              style={{
+                flex: 1,
+              }}
+            >
+              <Grid
+                className="gap-4 "
+                _extra={{
+                  className: "grid-cols-12",
+                }}
+              >
+                {jobsTodayEMployee.map((val, idx) => {
+                  return (
+                    <GridItem
+                      key={idx}
+                      className=" p-2 rounded-md bg-blue-500"
+                      _extra={{
+                        className: "col-span-6",
+                      }}
+                    >
+                      <HStack>
+                        <Box className=" self-center">
+                          <Ionicons name="person-circle-outline" size={28} color="black" />
+                        </Box>
+                        <Box className="pl-2">
+                          <Text>{val.name}</Text>
+                          <Text>Komisi : Rp 50.000</Text>
+                          <Text>Jobs: 5</Text>
+                        </Box>
+                      </HStack>
+                    </GridItem>
+                  );
+                })}
+              </Grid>
+            </ScrollView>
+          </Box>
+
+          <Box className="bg-red-700" style={{ height: "25%" }}>
+            <Text>MENUUUU</Text>
+          </Box>
+        </VStack>
+      </SafeAreaView>
+    </>
   );
 }
 
 const styles = StyleSheet.create({
   headerImage: {
-    color: '#808080',
+    color: "#808080",
     bottom: -90,
     left: -35,
-    position: 'absolute',
+    position: "absolute",
   },
   titleContainer: {
-    flexDirection: 'row',
+    flexDirection: "row",
     gap: 8,
   },
 });
